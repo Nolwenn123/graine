@@ -63,3 +63,60 @@ export const Spacing = {
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+
+/**
+ * Polices de l'app — chargées dans `_layout.tsx` via `useFonts`.
+ * Poppins pour le corps de texte, Playfair Display Bold pour les titres.
+ */
+export const AppFonts = {
+  regular: 'Poppins_400Regular',
+  medium: 'Poppins_500Medium',
+  semibold: 'Poppins_600SemiBold',
+  bold: 'Poppins_700Bold',
+  display: 'PlayfairDisplay_700Bold',
+} as const;
+
+/**
+ * Palette issue de la maquette Figma (écran d'accueil + historique).
+ */
+export const Palette = {
+  background: '#F2F1ED',
+  textDark: '#1A1A1A',
+  textMuted: '#6E6E6E',
+
+  // Cartes de stats
+  cardGreen: '#CADCB6',
+  cardPink: '#DCC1D4',
+
+  // Barres de progression
+  trackLight: '#DAD9D4',
+  trackFill: '#4F4F4D',
+  pinkTrack: 'rgba(0,0,0,0.08)',
+  pinkFill: '#8A6E82',
+
+  // Pastilles de pagination
+  dotActive: '#4F4F4D',
+  dotInactive: '#C9C8C2',
+
+  // Feuille « Historique »
+  sheet: '#CCDFBE',
+  sheetHandle: '#A9C194',
+  timelineLine: '#5C7A4E',
+  sectionLabel: '#6E7B63',
+
+  // Cartes de la timeline
+  itemGrey: '#CBCBC9',
+  itemGreen: '#A6C394',
+  itemPink: '#D5A6A6',
+  itemBeige: '#C6B79D',
+  itemBlueGrey: '#A6BFC0',
+
+  // Statuts
+  statusVerified: '#4CAF50',
+  statusPending: '#F5A623',
+
+  // Barre de navigation flottante (pilule en verre)
+  pillBg: 'rgba(120, 150, 95, 0.45)',
+  pillBorder: 'rgba(255,255,255,0.35)',
+  pillActive: 'rgba(90, 120, 70, 0.55)',
+} as const;

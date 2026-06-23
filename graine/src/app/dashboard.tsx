@@ -4,12 +4,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AppFonts, Palette } from '@/constants/theme';
 
-export default function ExploreScreen() {
+export default function DashboardScreen() {
   return (
     <View style={styles.root}>
       <SafeAreaView style={styles.center} edges={['top']}>
-        <MaterialCommunityIcons name="view-agenda-outline" size={48} color={Palette.textMuted} />
-        <Text style={styles.title}>Explorer</Text>
+        <MaterialCommunityIcons name="card-outline" size={48} color={Palette.textMuted} />
+        <Text style={styles.title}>Tableau de bord</Text>
         <Text style={styles.subtitle}>À venir</Text>
       </SafeAreaView>
     </View>
