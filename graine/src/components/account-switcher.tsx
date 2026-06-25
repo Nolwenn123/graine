@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
   },
   name: {
     fontFamily: AppFonts.medium,
-    fontSize: 24,
+    fontSize: 20,
     color: Palette.textDark,
   },
   type: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   accountRow: {
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   handle: {
     fontFamily: AppFonts.semibold,
-    fontSize: 18,
+    fontSize: 16,
     color: Palette.textDark,
   },
 });

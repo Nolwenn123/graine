@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 16,
     color: Palette.textDark,
     paddingVertical: 0,
   },

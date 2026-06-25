@@ -121,18 +121,18 @@ const styles = StyleSheet.create({
   logo: { width: 96, height: 100 },
   brandName: {
     fontFamily: AppFonts.display,
-    fontSize: 30,
+    fontSize: 24,
     color: Palette.textDark,
   },
   title: {
     fontFamily: AppFonts.display,
-    fontSize: 32,
+    fontSize: 26,
     color: Palette.textDark,
     textAlign: 'center',
   },
   subtitle: {
     fontFamily: AppFonts.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textMuted,
     textAlign: 'center',
     marginTop: Spacing.one,
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   field: { gap: Spacing.one },
   label: {
     fontFamily: AppFonts.medium,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textDark,
     marginLeft: Spacing.two,
   },
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: Palette.searchOutline,
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 16,
     color: Palette.textDark,
   },
   button: {
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
   buttonPressed: { opacity: 0.85 },
   buttonLabel: {
     fontFamily: AppFonts.semibold,
-    fontSize: 18,
+    fontSize: 16,
     color: '#FFFFFF',
   },
   footer: {
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
   },
   error: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: '#C0392B',
     textAlign: 'center',
   },

@@ -19,6 +19,6 @@ export default function DashboardScreen() {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: Palette.background },
   center: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 8 },
-  title: { fontFamily: AppFonts.display, fontSize: 28, color: Palette.textDark },
-  subtitle: { fontFamily: AppFonts.regular, fontSize: 16, color: Palette.textMuted },
+  title: { fontFamily: AppFonts.display, fontSize: 24, color: Palette.textDark },
+  subtitle: { fontFamily: AppFonts.regular, fontSize: 14, color: Palette.textMuted },
 });

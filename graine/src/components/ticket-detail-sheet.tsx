@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   },
   desc: {
     fontFamily: AppFonts.medium,
-    fontSize: 16,
+    fontSize: 15,
     color: Palette.timelineLine,
     textAlign: 'center',
     marginTop: Spacing.three,
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
   distance: {
     fontFamily: AppFonts.medium,
-    fontSize: 16,
+    fontSize: 15,
     color: Palette.textDark,
   },
   cta: {
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   ctaText: {
     fontFamily: AppFonts.medium,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.timelineLine,
   },
 });

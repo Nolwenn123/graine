@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { useAccount } from '@/context/account';
 import { useAuth } from '@/context/auth';
 import { AppFonts, Palette, Spacing } from '@/constants/theme';
 
@@ -20,12 +21,19 @@ const ITEMS: SettingsItem[] = [
 
 export default function SettingsScreen() {
   const router = useRouter();
-  const { configured, session, signOut } = useAuth();
+  const { signOut } = useAuth();
+  const { setAccountId } = useAccount();
   const [query, setQuery] = useState('');
 
   const items = ITEMS.filter((item) =>
     item.label.toLowerCase().includes(query.trim().toLowerCase()),
   );
+
+  const onLogout = async () => {
+    setAccountId('perso'); // on repart du compte perso à la prochaine connexion
+    await signOut();
+    router.replace('/login');
+  };
 
   return (
     <View style={styles.root}>
@@ -62,15 +70,12 @@ export default function SettingsScreen() {
             ))}
           </View>
 
-          {configured && session && (
-            <Pressable
-              style={({ pressed }) => [styles.logout, pressed && styles.rowPressed]}
-              hitSlop={8}
-              onPress={() => signOut()}>
-              <Ionicons name="log-out-outline" size={26} color="#C0392B" />
-              <Text style={styles.logoutLabel}>Déconnexion</Text>
-            </Pressable>
-          )}
+          <Pressable
+            style={({ pressed }) => [styles.logout, pressed && styles.logoutPressed]}
+            onPress={onLogout}>
+            <Ionicons name="log-out-outline" size={22} color="#C0392B" />
+            <Text style={styles.logoutLabel}>Se déconnecter</Text>
+          </Pressable>
         </View>
       </SafeAreaView>
     </View>
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: AppFonts.display,
-    fontSize: 34,
+    fontSize: 28,
     color: Palette.textDark,
   },
   searchBar: {
@@ -113,7 +118,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 16,
     color: Palette.textDark,
     paddingVertical: 0,
   },
@@ -131,19 +136,28 @@ const styles = StyleSheet.create({
   },
   rowLabel: {
     fontFamily: AppFonts.regular,
-    fontSize: 20,
+    fontSize: 16,
     color: Palette.textDark,
   },
   logout: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: Spacing.three,
+    justifyContent: 'center',
+    gap: Spacing.two,
     marginTop: 'auto',
     marginBottom: Spacing.six,
+    paddingVertical: Spacing.three,
+    borderRadius: 26,
+    borderWidth: 1.5,
+    borderColor: 'rgba(192,57,43,0.4)',
+    backgroundColor: 'rgba(192,57,43,0.06)',
+  },
+  logoutPressed: {
+    opacity: 0.7,
   },
   logoutLabel: {
     fontFamily: AppFonts.medium,
-    fontSize: 18,
+    fontSize: 15,
     color: '#C0392B',
   },
 });

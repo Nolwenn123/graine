@@ -135,13 +135,13 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 16,
     color: Palette.textDark,
     paddingVertical: 0,
   },
   title: {
     fontFamily: AppFonts.display,
-    fontSize: 30,
+    fontSize: 24,
     color: Palette.textDark,
   },
   list: {
@@ -158,12 +158,12 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     fontFamily: AppFonts.regular,
-    fontSize: 20,
+    fontSize: 16,
     color: Palette.textDark,
   },
   link: {
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 15,
     color: Palette.textDark,
   },
   avatar: {
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   },
   cardName: {
     fontFamily: AppFonts.semibold,
-    fontSize: 22,
+    fontSize: 18,
     color: Palette.textDark,
   },
   cardLines: {
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
   },
   cardLine: {
     fontFamily: AppFonts.regular,
-    fontSize: 18,
+    fontSize: 15,
     color: Palette.textDark,
   },
   pdfButton: {
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
   },
   pdfLabel: {
     fontFamily: AppFonts.medium,
-    fontSize: 17,
+    fontSize: 15,
     color: '#FFFFFF',
   },
 });

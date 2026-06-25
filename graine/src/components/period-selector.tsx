@@ -261,7 +261,7 @@ const styles = StyleSheet.create({
   },
   option: {
     fontFamily: AppFonts.regular,
-    fontSize: 19,
+    fontSize: 16,
     color: Palette.textDark,
   },
   optionSelected: {
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
   },
   chipText: {
     fontFamily: AppFonts.medium,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textDark,
   },
   weekRow: {
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontFamily: AppFonts.regular,
-    fontSize: 13,
+    fontSize: 12,
     color: Palette.textMuted,
   },
   grid: {
@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
   },
   dayText: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textDark,
   },
   dayTextEndpoint: {
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
   },
   pickerText: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textDark,
   },
   pickerTextSelected: {

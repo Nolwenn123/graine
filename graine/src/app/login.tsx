@@ -69,7 +69,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   footerText: {
     fontFamily: AppFonts.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   footerLink: {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   demo: {
     fontFamily: AppFonts.regular,
-    fontSize: 13,
+    fontSize: 12,
     color: Palette.textMuted,
     textAlign: 'center',
     marginTop: 4,

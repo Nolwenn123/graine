@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   typeLabel: {
     fontFamily: AppFonts.medium,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   typeLabelActive: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontFamily: AppFonts.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   footerLink: {

@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: AppFonts.display,
-    fontSize: 34,
+    fontSize: 28,
     color: Palette.textDark,
   },
   timeline: {
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   },
   sectionLabel: {
     fontFamily: AppFonts.medium,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.sectionLabel,
   },
   cards: {
@@ -161,12 +161,12 @@ const styles = StyleSheet.create({
   },
   cardName: {
     fontFamily: AppFonts.medium,
-    fontSize: 18,
+    fontSize: 16,
     color: Palette.textDark,
   },
   cardMeta: {
     fontFamily: AppFonts.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textDark,
   },
   factureBlock: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   },
   statusText: {
     fontFamily: AppFonts.medium,
-    fontSize: 14,
+    fontSize: 12,
     color: Palette.textMuted,
   },
   factureCard: {
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   },
   factureLink: {
     fontFamily: AppFonts.medium,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textDark,
     textAlign: 'right',
     textDecorationLine: 'underline',

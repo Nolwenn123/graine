@@ -162,12 +162,12 @@ const styles = StyleSheet.create({
   },
   accountName: {
     fontFamily: AppFonts.medium,
-    fontSize: 24,
+    fontSize: 20,
     color: Palette.textDark,
   },
   accountSubtitle: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   statsRow: {
@@ -195,12 +195,12 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontFamily: AppFonts.display,
-    fontSize: 34,
+    fontSize: 28,
     color: Palette.textDark,
   },
   statLabel: {
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 16,
     lineHeight: 23,
     color: Palette.textDark,
     textAlign: 'center',
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
   },
   levelTitle: {
     fontFamily: AppFonts.display,
-    fontSize: 28,
+    fontSize: 22,
     color: Palette.textDark,
   },
   levelProgress: {
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
   levelNext: {
     alignSelf: 'flex-end',
     fontFamily: AppFonts.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   dots: {
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   },
   popupText: {
     fontFamily: AppFonts.regular,
-    fontSize: 18,
+    fontSize: 16,
     lineHeight: 26,
     color: Palette.textDark,
     textAlign: 'center',

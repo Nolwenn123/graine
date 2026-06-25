@@ -135,6 +135,6 @@ const styles = StyleSheet.create({
   itemLabel: {
     color: '#FFFFFF',
     fontFamily: AppFonts.medium,
-    fontSize: 16,
+    fontSize: 14,
   },
 });

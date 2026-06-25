@@ -51,12 +51,12 @@ const styles = StyleSheet.create({
   title: {
     flex: 1,
     fontFamily: AppFonts.display,
-    fontSize: 28,
+    fontSize: 24,
     color: Palette.textDark,
   },
   subtitle: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.sectionLabel,
     marginTop: Spacing.two,
   },

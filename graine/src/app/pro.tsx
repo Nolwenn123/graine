@@ -242,12 +242,12 @@ const styles = StyleSheet.create({
   },
   accountName: {
     fontFamily: AppFonts.medium,
-    fontSize: 24,
+    fontSize: 20,
     color: Palette.textDark,
   },
   accountSubtitle: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   toolbar: {
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
   },
   periodLabel: {
     fontFamily: AppFonts.display,
-    fontSize: 26,
+    fontSize: 22,
     color: Palette.textDark,
   },
   csvButton: {
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
   },
   csvLabel: {
     fontFamily: AppFonts.regular,
-    fontSize: 15,
+    fontSize: 14,
     color: Palette.textMuted,
   },
   statsRow: {
@@ -297,19 +297,19 @@ const styles = StyleSheet.create({
   },
   statValue: {
     fontFamily: AppFonts.display,
-    fontSize: 32,
+    fontSize: 26,
     color: Palette.textDark,
   },
   statLabel: {
     fontFamily: AppFonts.regular,
-    fontSize: 17,
+    fontSize: 16,
     lineHeight: 23,
     color: Palette.textDark,
     textAlign: 'center',
   },
   chartTitle: {
     fontFamily: AppFonts.regular,
-    fontSize: 24,
+    fontSize: 20,
     color: Palette.textDark,
   },
   chart: {
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
   },
   legendLabel: {
     fontFamily: AppFonts.regular,
-    fontSize: 16,
+    fontSize: 14,
     color: Palette.textDark,
   },
   chartBody: {
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: Spacing.two,
     fontFamily: AppFonts.regular,
-    fontSize: 14,
+    fontSize: 12,
     color: Palette.textMuted,
   },
   plot: {
@@ -384,7 +384,7 @@ const styles = StyleSheet.create({
   },
   xLabel: {
     fontFamily: AppFonts.regular,
-    fontSize: 14,
+    fontSize: 12,
     color: Palette.textMuted,
     transform: [{ rotate: '-20deg' }],
   },
