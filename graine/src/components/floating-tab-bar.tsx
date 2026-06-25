@@ -5,54 +5,71 @@ import { Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
+import { useAccount } from '@/context/account';
 import { AppFonts, Palette } from '@/constants/theme';
 
+type TabPath = '/' | '/dashboard' | '/explore' | '/clients' | '/pro';
+
 type TabItem = {
-  path: '/' | '/dashboard' | '/explore';
+  path: TabPath;
   label: string;
   icon: (active: boolean, color: string) => React.ReactNode;
+  /** Routes supplémentaires qui gardent cet onglet actif. */
+  alsoActiveOn?: string[];
 };
-
-const TABS: TabItem[] = [
-  {
-    path: '/dashboard',
-    label: 'Tableau',
-    icon: (_active, color) => (
-      <MaterialCommunityIcons name="card-outline" size={22} color={color} />
-    ),
-  },
-  {
-    path: '/explore',
-    label: 'Explorer',
-    icon: (_active, color) => (
-      <MaterialCommunityIcons name="view-agenda-outline" size={22} color={color} />
-    ),
-  },
-  {
-    path: '/',
-    label: 'Profil',
-    icon: (active, color) => (
-      <Ionicons name={active ? 'person' : 'person-outline'} size={22} color={color} />
-    ),
-  },
-];
 
 export function FloatingTabBar() {
   const router = useRouter();
   const pathname = usePathname();
   const insets = useSafeAreaInsets();
+  const { accountId } = useAccount();
+  const isPro = accountId === 'pro';
+
+  // En compte pro, l'onglet du milieu devient « Clients » et le Profil pointe sur /pro.
+  const tabs: TabItem[] = [
+    {
+      path: '/dashboard',
+      label: 'Accueil',
+      icon: (_active, color) => (
+        <MaterialCommunityIcons name="card-outline" size={22} color={color} />
+      ),
+    },
+    isPro
+      ? {
+          path: '/clients',
+          label: 'Clients',
+          icon: (_active, color) => (
+            <MaterialCommunityIcons name="view-agenda-outline" size={22} color={color} />
+          ),
+        }
+      : {
+          path: '/explore',
+          label: 'Avantages',
+          icon: (_active, color) => (
+            <MaterialCommunityIcons name="view-agenda-outline" size={22} color={color} />
+          ),
+        },
+    {
+      path: isPro ? '/pro' : '/',
+      label: 'Profil',
+      icon: (active, color) => (
+        <Ionicons name={active ? 'person' : 'person-outline'} size={22} color={color} />
+      ),
+      alsoActiveOn: ['/settings'],
+    },
+  ];
 
   return (
     <View
       pointerEvents="box-none"
       style={[styles.wrapper, { paddingBottom: Math.max(insets.bottom, 12) }]}>
       <Pill>
-        {TABS.map((tab) => {
-          const active = pathname === tab.path;
+        {tabs.map((tab) => {
+          const active = pathname === tab.path || (tab.alsoActiveOn?.includes(pathname) ?? false);
           const color = active ? '#FFFFFF' : 'rgba(40,50,30,0.75)';
           return (
             <Pressable
-              key={tab.path}
+              key={tab.label}
               onPress={() => router.replace(tab.path)}
               style={[styles.item, active && styles.itemActive]}
               hitSlop={8}>

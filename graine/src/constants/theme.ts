@@ -119,4 +119,34 @@ export const Palette = {
   pillBg: 'rgba(120, 150, 95, 0.45)',
   pillBorder: 'rgba(255,255,255,0.35)',
   pillActive: 'rgba(90, 120, 70, 0.55)',
+
+  // Écran Explorer (carte)
+  ticketSheet: '#F4F3EE',
+  searchBg: 'rgba(255,255,255,0.95)',
+  searchPlaceholder: '#8A9683',
+  mapPin: '#E8503A',
+
+  // Menus déroulants (sélecteur de compte / de période)
+  menu: '#E4ECDC',
+  avatarBg: '#BBceA6',
+
+  // Tableau de bord « Compte pro »
+  buttonGrey: '#DAD9D4',
+  cardRose: '#E3C7C7',
+  cardBlue: '#C6D8DD',
+  roseTrack: 'rgba(0,0,0,0.07)',
+  roseFill: '#A87E7E',
+
+  // Graphique « scans par jour »
+  chartGreen: '#C2D6A8',
+  chartPink: '#D9B8B8',
+
+  // Calendrier
+  calendarSelected: '#4F4F4D',
+  calendarRange: 'rgba(0,0,0,0.06)',
+
+  // Popups / paramètres / liste clients
+  popupCard: '#D8E6CD',
+  buttonGreen: '#A7BF93',
+  searchOutline: '#A9C194',
 } as const;

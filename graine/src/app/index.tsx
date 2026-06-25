@@ -1,70 +1,114 @@
 import { Ionicons } from '@expo/vector-icons';
+import { BlurTargetView } from 'expo-blur';
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
+import { useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AccountSwitcher } from '@/components/account-switcher';
+import { BlurPopup } from '@/components/blur-popup';
 import { HistorySheet, PEEK_HEIGHT } from '@/components/history-sheet';
+import { useAccount } from '@/context/account';
 import { AppFonts, Palette, Spacing } from '@/constants/theme';
 
 export default function HomeScreen() {
+  const router = useRouter();
+  const { setAccountId } = useAccount();
+  const [showGoal, setShowGoal] = useState(false);
+  const [showAccounts, setShowAccounts] = useState(false);
+  const blurTarget = useRef<View>(null);
+
   return (
     <View style={styles.root}>
-      <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <View style={styles.content}>
-          {/* En-tête compte */}
-          <View style={styles.header}>
-            <Pressable style={styles.account} hitSlop={8}>
-              <View style={styles.accountNameRow}>
-                <Text style={styles.accountName}>nol</Text>
-                <Ionicons name="chevron-down" size={18} color={Palette.textDark} />
+      <BlurTargetView ref={blurTarget} style={styles.blurTarget}>
+        <SafeAreaView style={styles.safeArea} edges={['top']}>
+          <View style={styles.content}>
+            {/* En-tête compte */}
+            <View style={styles.header}>
+              <Pressable style={styles.account} hitSlop={8} onPress={() => setShowAccounts(true)}>
+                <View style={styles.accountNameRow}>
+                  <Text style={styles.accountName}>nol</Text>
+                  <Ionicons name="chevron-down" size={18} color={Palette.textDark} />
+                </View>
+                <Text style={styles.accountSubtitle}>Compte perso</Text>
+              </Pressable>
+
+              <Pressable hitSlop={8} onPress={() => router.push('/settings')}>
+                <Ionicons name="settings-outline" size={26} color={Palette.textDark} />
+              </Pressable>
+            </View>
+
+            {/* Cartes de stats */}
+            <View style={styles.statsRow}>
+              <View style={[styles.statCard, { backgroundColor: Palette.cardGreen }]}>
+                <Text style={styles.statValue}>28kg</Text>
+                <Text style={styles.statLabel}>de CO2{'\n'}économisé</Text>
               </View>
-              <Text style={styles.accountSubtitle}>Compte perso</Text>
-            </Pressable>
 
-            <Pressable hitSlop={8}>
-              <Ionicons name="settings-outline" size={26} color={Palette.textDark} />
-            </Pressable>
-          </View>
-
-          {/* Cartes de stats */}
-          <View style={styles.statsRow}>
-            <View style={[styles.statCard, { backgroundColor: Palette.cardGreen }]}>
-              <Text style={styles.statValue}>28kg</Text>
-              <Text style={styles.statLabel}>de CO2{'\n'}économisé</Text>
+              <Pressable
+                onPress={() => setShowGoal(true)}
+                style={({ pressed }) => [
+                  styles.statCard,
+                  { backgroundColor: Palette.cardPink },
+                  pressed && styles.statCardPressed,
+                ]}>
+                <Text style={styles.statValue}>5</Text>
+                <Text style={styles.statLabel}>gestes{'\n'}réalisés</Text>
+                <ProgressBar progress={0.4} track={Palette.pinkTrack} fill={Palette.pinkFill} />
+              </Pressable>
             </View>
 
-            <View style={[styles.statCard, { backgroundColor: Palette.cardPink }]}>
-              <Text style={styles.statValue}>5</Text>
-              <Text style={styles.statLabel}>gestes{'\n'}réalisés</Text>
-              <ProgressBar progress={0.4} track={Palette.pinkTrack} fill={Palette.pinkFill} />
-            </View>
-          </View>
+            {/* Plante + niveau */}
+            <View style={styles.hero}>
+              <Image
+                source={require('@/assets/images/plant.png')}
+                style={styles.plant}
+                contentFit="contain"
+              />
 
-          {/* Plante + niveau */}
-          <View style={styles.hero}>
-            <Image
-              source={require('@/assets/images/plant.png')}
-              style={styles.plant}
-              contentFit="contain"
-            />
+              <Text style={styles.levelTitle}>Niveau 6</Text>
 
-            <Text style={styles.levelTitle}>Niveau 6</Text>
+              <View style={styles.levelProgress}>
+                <Text style={styles.levelNext}>niv 7</Text>
+                <ProgressBar progress={0.85} track={Palette.trackLight} fill={Palette.trackFill} />
+              </View>
 
-            <View style={styles.levelProgress}>
-              <Text style={styles.levelNext}>niv 7</Text>
-              <ProgressBar progress={0.85} track={Palette.trackLight} fill={Palette.trackFill} />
-            </View>
-
-            <View style={styles.dots}>
-              <View style={[styles.dot, styles.dotActive]} />
-              <View style={styles.dot} />
-              <View style={styles.dot} />
+              <View style={styles.dots}>
+                <View style={[styles.dot, styles.dotActive]} />
+                <View style={styles.dot} />
+                <View style={styles.dot} />
+              </View>
             </View>
           </View>
+        </SafeAreaView>
+
+        <HistorySheet />
+      </BlurTargetView>
+
+      <AccountSwitcher
+        visible={showAccounts}
+        onClose={() => setShowAccounts(false)}
+        blurTarget={blurTarget}
+        currentId="perso"
+        onSelect={(account) => {
+          setShowAccounts(false);
+          setAccountId(account.id);
+          router.replace(account.route);
+        }}
+      />
+
+      <BlurPopup
+        visible={showGoal}
+        onClose={() => setShowGoal(false)}
+        blurTarget={blurTarget}>
+        <View style={styles.popupCard}>
+          <Text style={styles.popupEmoji}>🌱</Text>
+          <Text style={styles.popupText}>
+            Vous devez réaliser 10 gestes responsables pour passer au niveau suivant.
+          </Text>
         </View>
-      </SafeAreaView>
-
-      <HistorySheet />
+      </BlurPopup>
     </View>
   );
 }
@@ -87,6 +131,10 @@ function ProgressBar({
 
 const styles = StyleSheet.create({
   root: {
+    flex: 1,
+    backgroundColor: Palette.background,
+  },
+  blurTarget: {
     flex: 1,
     backgroundColor: Palette.background,
   },
@@ -141,6 +189,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 10,
     elevation: 3,
+  },
+  statCardPressed: {
+    opacity: 0.85,
   },
   statValue: {
     fontFamily: AppFonts.display,
@@ -202,5 +253,25 @@ const styles = StyleSheet.create({
   progressFill: {
     height: '100%',
     borderRadius: 4,
+  },
+  popupCard: {
+    // Vert uni (la carte est opaque, seul le fond derrière reste flouté).
+    backgroundColor: '#D8E6CD',
+    borderRadius: 32,
+    paddingVertical: Spacing.five,
+    paddingHorizontal: Spacing.four,
+    maxWidth: 340,
+    alignItems: 'center',
+    gap: Spacing.three,
+  },
+  popupEmoji: {
+    fontSize: 40,
+  },
+  popupText: {
+    fontFamily: AppFonts.regular,
+    fontSize: 18,
+    lineHeight: 26,
+    color: Palette.textDark,
+    textAlign: 'center',
   },
 });
